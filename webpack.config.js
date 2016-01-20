@@ -1,5 +1,6 @@
 const ejs = require('ejs');
 const webpack = require('webpack');
+const react = require('react');
 const ReactToHtmlPlugin = require('react-to-html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -61,7 +62,10 @@ module.exports = {
               <html>
                 <head>
                   <meta charset="utf-8" />
-                  <title>Alexa</title>
+                  <meta name ="title" content="Камера Arri Alexa mini. Аренда в Москве">
+                  <title>Камера Arri Alexa mini. Аренда в Москве</title>
+                  <meta name="description" content="Мы предлагаем аренду камеры Arri Alexa mini и обективов в Москве, а также услуги оператора. FREEFLY MOVI" />
+                  <meta name="keywords" content="Arri Alexa, аренда alexa mini, alexa mini, аренда камеры alexa" />
                   <link rel="stylesheet" href="assets/bundle.css" />
                 </head>
                 <body>
