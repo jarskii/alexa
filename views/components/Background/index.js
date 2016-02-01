@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
 
-export default class Image extends Component {
+export default class Background extends Component {
   constructor() {
     super();
     this.state = {};
@@ -12,32 +12,45 @@ export default class Image extends Component {
     })
   }
   componentDidMount() {
-    if (isImageOk(this.refs.img)) {
+    const {image} = this.props;
+    const img = document.createElement('img');
+
+    img.src = image;
+
+    img.onload = this.onLoadSuccess.bind(this);
+
+    console.log(img.complete);
+
+    if (isImageOk(img)) {
       this.setState({
         isLoaded: true
       })
     }
   }
   render() {
-    const {className, src, ...restProps} = this.props;
+    const {className, image, ...restProps} = this.props;
     const {isLoaded} = this.state;
     const cls = {
-      "Image": true,
-      "Image--isShowed": isLoaded
+      "Background": true,
+      "Background--isShowed": isLoaded
     };
 
     cls[className] = true;
 
-    const path = `/${src}`;
+    const styles = {};
+
+    if (isLoaded) {
+      styles.backgroundImage = `url(${image})`;
+    }
+
+    console.log(styles);
 
     return (
-      <img
-        ref="img"
+      <div
         className={classNames(cls)}
-        onLoad={this.onLoadSuccess.bind(this)}
-        src={path}
+        style={styles}
         {...restProps}
-      />
+      ></div>
     )
   }
 }

@@ -29,5 +29,8 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1"
   }
 }

@@ -1,15 +1,48 @@
-html, body {
-  margin: 0;
-  padding: 0;
-}
+@require 'reset.styl'
 
 .Layout {
   display: block;
   font-family: Helvetica,sans-serif;
 
+  &GoodsList {
+
+    &Item {
+
+      display: inline-block;
+      margin: 36px 36px 0 0;
+
+      &Link {
+        text-decoration: none;
+      }
+
+      &Img {
+        width: 300px;
+        margin-bottom: 16px;
+      }
+
+      &Title {
+        text-align: center;
+        color: #333;
+      }
+    }
+  }
+
   &Row {
     position: relative;
     text-align: center;
+
+    &Point {
+      font-size: 14px;
+    }
+
+    &Price {
+      font-size: 23px;
+      background: #f1c044;
+      padding: 10px;
+      padding-right: 168px;
+      display: inline-block;
+      box-shadow: 1px -1px 0px 1px #E3B030;
+    }
 
     &--Right {
       text-align: right;
@@ -49,6 +82,7 @@ html, body {
 
       &Image {
         margin-right: 100px;
+        max-width: 600px;
       }
     }
 
@@ -109,6 +143,7 @@ html, body {
       margin: 0 auto;
       display: block;
       min-height: 300px;
+      max-width: 100%;
     }
 
     &Text {
@@ -154,7 +189,7 @@ html, body {
       margin: 0;
 
       &--Short {
-        width: 300px;
+        //width: 300px;
         top: 40px;
       }
 
@@ -169,7 +204,7 @@ html, body {
           background: #f1c044;
           z-index: -1;
           transform: skew(-20deg,0deg);
-          right: 0;
+          right: -10px;
           top: 0;
         }
       }
@@ -244,6 +279,7 @@ html, body {
       &Camera {
         &Image{
           margin-right: 0;
+          max-width: 340px;
         }
       }
 
@@ -258,7 +294,7 @@ html, body {
         padding: 8px;
 
         &--Short {
-          width: 230px;
+          //width: 230px;
           top: 30px;
           left: -45px;
         }

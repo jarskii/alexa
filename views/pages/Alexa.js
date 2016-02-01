@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import Image from './components/Image/index.js';
-import Input from './components/Input/index.js';
-import Checkbox from './components/Checkbox/index.js';
-import PhoneIcon from './components/Icons/PhoneIcon.js';
-import CheckIcon from './components/Icons/CheckIcon.js';
-import CrossIcon from './components/Icons/CrossIcon.js';
+import Image from './../components/Image/index.js';
+import Input from './../components/Input/index.js';
+import Checkbox from './../components/Checkbox/index.js';
+import PhoneIcon from './../components/Icons/PhoneIcon.js';
+import CheckIcon from './../components/Icons/CheckIcon.js';
+import CrossIcon from './../components/Icons/CrossIcon.js';
 import classNames from 'classnames';
 import Player from 'react-player';
 import request from 'superagent';
-import qs from './lib/qs';
+import qs from '../lib/qs';
 
 let animatedScrollTo;
 
@@ -24,10 +24,10 @@ function findPos(obj) {
 
 export default class Layout extends Component {
   constructor(props) {
-   super(props);
-   this.state = {
-     choosenVariant: null
-   };
+    super(props);
+    this.state = {
+      choosenVariant: null
+    };
   }
 
   componentDidMount() {
@@ -213,109 +213,109 @@ export default class Layout extends Component {
           </div>
         </div>
         <div ref="feedbackForm" className="LayoutRow LayoutRow--Right">
-            <div className="LayoutRowCamera">
-              <Image
-                className="LayoutRowCameraImage"
-                src="images/arri_alexa_mini.jpg"
-                title="Alexa Mini"
-              />
+          <div className="LayoutRowCamera">
+            <Image
+              className="LayoutRowCameraImage"
+              src="images/arri_alexa_mini.jpg"
+              title="Alexa Mini"
+            />
+          </div>
+          <div className="LayoutRowForm">
+            <div className="LayoutRowFormCaption">
+              Оставьте контактные данные и мы свяжемся с вами в течение 10 минут
             </div>
-            <div className="LayoutRowForm">
-              <div className="LayoutRowFormCaption">
-                Оставьте контактные данные и мы свяжемся с вами в течение 10 минут
-              </div>
-              <Input
-                ref="name"
-                label="Имя"
-                placeholder="Иван Иванов"
-              />
-              <Input
-                ref="email"
-                label="Телефон или E-mail"
-                placeholder="+79258937383"
-              />
-              <div className="LayoutRowControls">
-                <div className="LayoutRowFormLine">
-                  <Checkbox
-                    ref="checkFirst"
-                    className="LayoutRowFormCheckbox"
-                    label="Камера + Техник"
-                    caption={{
+            <Input
+              ref="name"
+              label="Имя"
+              placeholder="Иван Иванов"
+            />
+            <Input
+              ref="email"
+              label="Телефон или E-mail"
+              placeholder="+79258937383"
+            />
+            <div className="LayoutRowControls">
+              <div className="LayoutRowFormLine">
+                <Checkbox
+                  ref="checkFirst"
+                  className="LayoutRowFormCheckbox"
+                  label="Камера + Техник"
+                  caption={{
                       title: "24000 Р",
                       caption: "За смену 12 часов"
                     }}
-                    onHover={this.onHoverCheckbox.bind(this)}
-                    onLeave={this.onLeaveCheckbox.bind(this)}
-                  />
-                </div>
-                <div className="LayoutRowFormLine">
-                  <Checkbox
-                    ref="checkSecond"
-                    className="LayoutRowFormCheckbox"
-                    label="Freefly MOVI"
-                    caption={{
+                  onHover={this.onHoverCheckbox.bind(this)}
+                  onLeave={this.onLeaveCheckbox.bind(this)}
+                />
+              </div>
+              <div className="LayoutRowFormLine">
+                <Checkbox
+                  ref="checkSecond"
+                  className="LayoutRowFormCheckbox"
+                  label="Freefly MOVI"
+                  caption={{
                       title: "30000 Р",
                       caption: "За смену 12 часов"
                     }}
-                    onHover={this.onHoverCheckbox.bind(this)}
-                    onLeave={this.onLeaveCheckbox.bind(this)}
-                  />
-                </div>
-                <div className="LayoutRowFormLine">
-                  <Checkbox
-                    ref="checkThird"
-                    className="LayoutRowFormCheckbox"
-                    label="Объективы  Ultra Prime"
-                    caption={{
+                  onHover={this.onHoverCheckbox.bind(this)}
+                  onLeave={this.onLeaveCheckbox.bind(this)}
+                />
+              </div>
+              <div className="LayoutRowFormLine">
+                <Checkbox
+                  ref="checkThird"
+                  className="LayoutRowFormCheckbox"
+                  label="Объективы  Ultra Prime"
+                  caption={{
                       title: "1500 Р",
                       caption: "За один объектив в смену"
                     }}
-                    onHover={this.onHoverCheckbox.bind(this)}
-                    onLeave={this.onLeaveCheckbox.bind(this)}
-                  />
-                </div>
-                <div className={
+                  onHover={this.onHoverCheckbox.bind(this)}
+                  onLeave={this.onLeaveCheckbox.bind(this)}
+                />
+              </div>
+              <div className={
                   classNames({
                     "LayoutRowControlsInfo": true,
                     "LayoutRowControlsInfo--Show": showHint
                   })
                 }>
-                  {
-                    choosenVariant
-                    &&
-                    <div>
-                      <div className="LayoutRowControlsInfoTitle">{choosenVariant.title}</div>
-                      {choosenVariant.caption}
-                    </div>
-                  }
-
-
-                </div>
-              </div>
-              <Input
-                ref="date"
-                label="Когда съемка ?"
-                placeholder="Сообщите нам дату и время"
-              />
-              <div onClick={this.onSubmit.bind(this)} className="LayoutRowButton LayoutRowButton--Left">Заказать</div>
                 {
-                  status
+                  choosenVariant
                   &&
-                  <div className="LayoutRowButtonMsg">
-                    {
-                      status.type === 'success'
-                        ?
-                        <CheckIcon fill="#85E080" />
-                        :
-                        <CrossIcon fill="#EDC84C"  />
-                    }
-                    <div className="LayoutRowButtonMsgText">
-                      {status.msg}
-                    </div>
+                  <div>
+                    <div className="LayoutRowControlsInfoTitle">{choosenVariant.title}</div>
+                    {choosenVariant.caption}
                   </div>
                 }
-              <div className="Clear"></div>
+
+
+              </div>
             </div>
+            <Input
+              ref="date"
+              label="Когда съемка ?"
+              placeholder="Сообщите нам дату и время"
+            />
+            <div onClick={this.onSubmit.bind(this)} className="LayoutRowButton LayoutRowButton--Left">Заказать</div>
+            {
+              status
+              &&
+              <div className="LayoutRowButtonMsg">
+                {
+                  status.type === 'success'
+                    ?
+                    <CheckIcon fill="#85E080" />
+                    :
+                    <CrossIcon fill="#EDC84C"  />
+                }
+                <div className="LayoutRowButtonMsgText">
+                  {status.msg}
+                </div>
+              </div>
+            }
+            <div className="Clear"></div>
+          </div>
           <div className="LayoutRowSeparator"></div>
         </div>
         <div className="LayoutRow">

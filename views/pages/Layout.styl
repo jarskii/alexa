@@ -1,0 +1,300 @@
+@require 'reset.styl'
+
+.Layout {
+  display: block;
+  font-family: Helvetica,sans-serif;
+
+  &GoodsList {
+
+    &Item {
+
+      display: inline-block;
+      margin: 36px 36px 0 0;
+
+      &Link {
+        text-decoration: none;
+      }
+
+      &Img {
+        width: 300px;
+        margin-bottom: 16px;
+      }
+
+      &Title {
+        text-align: center;
+        color: #333;
+      }
+    }
+  }
+
+  &Row {
+    position: relative;
+    text-align: center;
+
+    &--Right {
+      text-align: right;
+    }
+
+    &Phones {
+      text-align: center;
+
+      &Link {
+        color: #555;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 26px;
+        display: inline-block;
+        line-height: 36px;
+
+        &--Middle {
+          margin: 0 24px;
+        }
+      }
+    }
+
+    &Bottom {
+      &Image {
+        width: 80%;
+        max-width: auto;
+        margin: auto;
+      }
+    }
+
+
+
+    &Camera, &Form {
+      display: inline-block;
+      vertical-align: top;
+      text-align: left;
+
+      &Image {
+        margin-right: 100px;
+      }
+    }
+
+    &Controls {
+      position: relative;
+      margin: 24px 0;
+
+      &Info {
+        opacity: 0;
+        position: absolute;
+        background: #f1c044;
+        padding: 16px;
+        font-size: 13px;
+        color: #555;
+        right: 16px;
+        top: -4px;
+        text-align: center;
+        transition: opacity .3s;
+
+        &--Show {
+          opacity: 1;
+        }
+
+        &Title {
+          font-size: 36px;
+        }
+      }
+    }
+
+    &Form {
+      padding: 16px;
+      min-width: 500px;
+
+      &Caption {
+        font-size: 15px;
+        display: block;
+        color: #999;
+        margin-bottom: 16px;
+        max-width: 420px;
+        font-weight: 300;
+        line-height: 22px;
+      }
+    }
+
+    &Separator {
+      text-align: center;
+      font-size: 32px;
+      color: transparent;
+      font-weight: 300;
+      width: 40px;
+      height: 1px;
+      display: block;
+      margin: 32px auto;
+      background: #aaa;
+    }
+
+    &Image {
+      margin: 0 auto;
+      display: block;
+      min-height: 300px;
+    }
+
+    &Text {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 32px;
+      width: 800px;
+      margin: auto;
+
+      &-Top {
+
+      }
+    }
+
+    &Wrapper {
+    }
+
+    &List {
+      display: inline-block;
+      width: 300px;
+      text-align: left;
+      line-height: 32px;
+      font-size: 18px;
+      font-weight: 300;
+      list-style-type: circle;
+    }
+
+    &Caption {
+      font-weight: 500;
+      font-size: 24px;
+      text-align: center;
+      margin: 36px 0;
+    }
+
+    &Title {
+      font-weight: 300;
+      font-size: 24px;
+      text-align: left;
+      //background: #f1c044;
+      padding: 16px;
+      position: absolute;
+      left: 0;
+      margin: 0;
+
+      &--Short {
+        width: 300px;
+        top: 40px;
+      }
+
+      &Text {
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 3px;
+          height: 100%;
+          background: #f1c044;
+          z-index: -1;
+          transform: skew(-20deg,0deg);
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+
+    &Button {
+      width: 190px;
+      color: #f1c044;
+      padding: 16px 0;
+      border-radius: 8px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background  .3s, color .3s;
+      font-weight: 300;
+      margin: 16px 0;
+      border: 2px solid #f1c044;
+      text-align: center;
+
+      &:hover {
+        background: #f1c044;
+        color: #222;
+      }
+
+      &--Left {
+        float: left;
+      }
+
+      &Msg {
+        float: right;
+        width: 220px;
+        margin: 28px 58px 0 0;
+        font-size: 14px;
+        color: #666;
+
+        &Text {
+          display: inline-block;
+          float: right;
+          width: 175px;
+        }
+      }
+    }
+  }
+}
+
+.Clear {
+  clear: both;
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .Layout {
+    width: 800px;
+    margin: auto;
+
+    &Row {
+      &--Left {
+        text-align: left;
+      }
+
+      &Button {
+        width: 140px;
+
+        &Msg {
+          margin: 20px 40px 0 0;
+        }
+      }
+
+      &Form {
+        min-width: 420px;
+      }
+
+      &Camera {
+        &Image{
+          margin-right: 0;
+        }
+      }
+
+      &Image {
+        margin: 0 auto;
+        width: 700px;
+        display: block;
+      }
+
+      &Title {
+        font-size: 18px;
+        padding: 8px;
+
+        &--Short {
+          width: 230px;
+          top: 30px;
+          left: -45px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .Layout {
+    width: 1240px;
+    margin: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .Layout {
+    width: 1280px;
+    margin: auto;
+  }
+}
